@@ -11,5 +11,8 @@ namespace Infrastructure.Abstract
     public interface ICustomerService
     {
         IDataResult<List<OrderDetailsDto>> GetMyOrders(int customerId);
+        List<OperationClaim> GetClaims(Customer user);
+        void Add(Customer user);
+        Customer GetByMail(string email);
     }
 }

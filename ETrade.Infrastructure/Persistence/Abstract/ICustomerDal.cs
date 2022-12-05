@@ -9,6 +9,6 @@ namespace Persistence.Abstract
 {
     public interface ICustomerDal : IEntityRepository<Customer>
     {
-        
+        List<OperationClaim> GetClaims(Customer customer);
     }
 }

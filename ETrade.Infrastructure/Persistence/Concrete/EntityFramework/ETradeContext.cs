@@ -11,7 +11,7 @@ namespace Persistence.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=yourdb;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=etrade;Trusted_Connection=true");
         }
 
         public DbSet<Customer> Customers {get; set;}
@@ -19,5 +19,7 @@ namespace Persistence.Concrete.EntityFramework
         public DbSet<Store> Stores {get; set;}
         public DbSet<Category> Categories {get; set;}
         public DbSet<Product> Products {get; set;}
+        public DbSet<OperationClaim> OperationClaims {get; set;}
+        public DbSet<CustomerOperationClaim> CustomerOperationClaims {get; set;}
     }
 }
