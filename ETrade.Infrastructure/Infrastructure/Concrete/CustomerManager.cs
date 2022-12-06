@@ -14,16 +14,28 @@ namespace Infrastructure.Concrete
     {
         IOrderService _orderService;
         ICustomerDal _customerDal;
+        IProductService _productService;
 
-        public CustomerManager(IOrderService orderService, ICustomerDal customerDal)
+        public CustomerManager(IOrderService orderService, ICustomerDal customerDal, IProductService productService)
         {
             _orderService = orderService;
             _customerDal = customerDal;
+            _productService = productService;
         }
 
         public void Add(Customer customer)
         {
             _customerDal.Add(customer);
+        }
+
+        public IResult BuyProduct(Product product, int piece)
+        {
+            IResult result = _productService.IsThereAProduct(product, piece);
+            if(result.Success)
+            {
+                 
+            }
+            return new ErrorResult();
         }
 
         public Customer GetByMail(string email)

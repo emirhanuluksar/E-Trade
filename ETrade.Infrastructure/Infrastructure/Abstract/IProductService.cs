@@ -19,5 +19,6 @@ namespace Infrastructure.Abstract
         IResult Delete(Product product);
         IResult Update(Product product);
         IResult AddTransationalTest(Product product);
+        IResult IsThereAProduct(Product product, int piece);
     }
 }

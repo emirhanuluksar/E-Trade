@@ -14,5 +14,6 @@ namespace Infrastructure.Abstract
         List<OperationClaim> GetClaims(Customer user);
         void Add(Customer user);
         Customer GetByMail(string email);
+        IResult BuyProduct(Product product, int pice);
     }
 }

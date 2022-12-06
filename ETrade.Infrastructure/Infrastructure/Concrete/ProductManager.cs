@@ -135,5 +135,16 @@ namespace Infrastructure.Concrete
 
             return new SuccessResult();
         }
+
+        public IResult IsThereAProduct(Product product, int piece)
+        {
+            var result = _productDal.Get(p=>p.ProductId == product.ProductId);
+            if(result.UnitsInStock >= piece)
+            {
+                return new SuccessResult();
+            }
+            return new ErrorResult();
+
+        }
     }
 }
