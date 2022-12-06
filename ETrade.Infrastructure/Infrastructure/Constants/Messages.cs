@@ -18,11 +18,11 @@ namespace Infrastructure.Constants
         public static string CategoryListed = "Kategori listelendi";
         public static string ProductAdded = "Ürün eklendi";
 
-        public static string ProductCountOfCategoryError { get; internal set; }
-        public static string ProductNameAlreadyExists { get; internal set; }
-        public static string CategoryLimitExceded { get; internal set; }
-        public static string ProductDeleted { get; internal set; }
-        public static string ProductsListed { get; internal set; }
-        public static string MaintenanceTime { get; internal set; }
+        public static string ProductCountOfCategoryError = "Kategori sınırı aşıldı";
+        public static string ProductNameAlreadyExists = "Bu isimde bir ürün zaten var";
+        public static string CategoryLimitExceded = "Kategori limiti aşıldı";
+        public static string ProductDeleted = "Ürün kaldırıldı!";
+        public static string ProductsListed = "Ürünler listelendi";
+        public static string MaintenanceTime = "BAKIMDA!";
     }
 }

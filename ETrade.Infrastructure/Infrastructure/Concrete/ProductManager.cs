@@ -82,7 +82,7 @@ namespace Infrastructure.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            if (DateTime.Now.Hour == 1)
+            if (DateTime.Now.Hour == 00)
             {
                 return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
             }
