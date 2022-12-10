@@ -19,14 +19,14 @@ namespace Persistence.Concrete.EntityFramework
                              join c in context.Customers
                              on o.CustomerId equals c.CustomerId
                              join s in context.Stores
-                             on o.StoreId equals s.StoreId
-                             join ct in context.Categories
-                             on o.CategoryId equals ct.CategoryId
+                             on o.ProductId equals s.StoreId
+                            //  join ct in context.Categories
+                            //  on o.CategoryId equals ct.CategoryId
                              join p in context.Products
                              on o.ProductId equals p.ProductId
                              where o.CustomerId == customerId
 
-                             select new OrderDetailsDto {OrderId=o.OrderId, StoreName=s.StoreName, CategoryName=ct.CategoryName,ProductName=p.ProductName,CustomerName=c.FirstName + " " + c.LastName, OrderDate=DateTime.Now};
+                             select new OrderDetailsDto {OrderId=o.OrderId, StoreName=s.StoreName,ProductName=p.ProductName,CustomerName=c.FirstName + " " + c.LastName, OrderDate=DateTime.Now};
                 return result.ToList();
             }
         }

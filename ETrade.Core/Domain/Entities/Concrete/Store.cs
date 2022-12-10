@@ -10,5 +10,12 @@ namespace Domain.Entities.Concrete
     {
         public int StoreId {get; set;}
         public string StoreName {get; set;}
+        public int AddressId {get; set;}
+        public DateTime CreatedDate {get; set;}
+        public int NumberOfProduct {get; set;}
+        public DateTime DeliveryTimeToCargo {get; set;}
+        public int AnswerRate {get; set;}
+        public int Rating {get; set;}
     }
+
 }

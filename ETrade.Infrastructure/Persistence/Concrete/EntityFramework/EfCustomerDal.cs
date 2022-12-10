@@ -18,7 +18,7 @@ namespace Persistence.Concrete.EntityFramework
                              join customerOperationClaim in context.CustomerOperationClaims
                                  on operationClaim.Id equals customerOperationClaim.OperationClaimId
                              where customerOperationClaim.CustomerId == customer.CustomerId
-                             select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
+                             select new OperationClaim { Id = operationClaim.Id, ClaimName = operationClaim.ClaimName };
                 return result.ToList();
 
             }

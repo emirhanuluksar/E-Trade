@@ -15,5 +15,6 @@ namespace Domain.Entities.Concrete
         public byte[] PasswordHash {get; set;}
         public byte[] PasswordSalt {get; set;}
         public bool Status {get; set;}
+        public int AddressId {get; set;}
     }
 }

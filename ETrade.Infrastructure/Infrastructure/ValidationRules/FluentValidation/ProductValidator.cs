@@ -11,7 +11,7 @@ namespace Infrastructure.ValidationRules.FluentValidation
     {
         public ProductValidator()
         {
-            
+            //RuleFor<>();
         }
     }
 }

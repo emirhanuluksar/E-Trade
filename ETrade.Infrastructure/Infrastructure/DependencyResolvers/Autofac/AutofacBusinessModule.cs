@@ -40,8 +40,8 @@ namespace Infrastructure.DependencyResolvers.Autofac
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
-            builder.RegisterType<CartManager>().As<ICartService>();
-            builder.RegisterType<EfCartDal>().As<ICartDal>();
+            //builder.RegisterType<CartManager>().As<ICartService>();
+            //builder.RegisterType<EfCartDal>().As<ICartDal>();
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

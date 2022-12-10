@@ -28,6 +28,10 @@ namespace Infrastructure.Concrete
             _customerDal.Add(customer);
         }
 
+        // Validation
+        // PerformanceAspect
+        // SecuredOperation
+        // Caching
         public IResult BuyProduct(Product product, int piece)
         {
             IResult result = _productService.IsThereAProduct(product, piece);

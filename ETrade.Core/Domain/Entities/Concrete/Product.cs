@@ -14,5 +14,10 @@ namespace Domain.Entities.Concrete
         public string ProductName {get; set;}
         public short UnitsInStock {get; set;}
         public decimal UnitPrice {get; set;}
+        public int UnitsOnOrder {get; set;}
+        public string Barcode {get; set;}
+        public int Evaluate {get; set;}
+        
+
     }
 }

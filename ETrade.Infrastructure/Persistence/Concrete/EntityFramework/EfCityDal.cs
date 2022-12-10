@@ -8,7 +8,7 @@ using Persistence.Abstract;
 
 namespace Persistence.Concrete.EntityFramework
 {
-    public class EfCartDal : EfEntityRepositoryBase<Cart, ETradeContext>, ICartDal
+    public class EfCityDal : EfEntityRepositoryBase<City, ETradeContext>, ICityDal
     {
         
     }

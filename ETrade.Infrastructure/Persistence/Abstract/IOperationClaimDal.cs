@@ -7,7 +7,7 @@ using Domain.Entities.Concrete;
 
 namespace Persistence.Abstract
 {
-    public interface ICartDal : IEntityRepository<Cart>
+    public interface IOperationClaimDal : IEntityRepository<OperationClaim>
     {
         
     }
