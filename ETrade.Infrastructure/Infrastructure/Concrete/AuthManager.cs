@@ -35,7 +35,8 @@ namespace Infrastructure.Concrete
                 Email = customerForRegisterDto.Email,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
-                Status = true
+                Status = true,
+                AddressId = customerForRegisterDto.AddressId
             };
             _customerService.Add(customer);
             return new SuccessDataResult<Customer>(customer,Messages.CustomerRegistered);

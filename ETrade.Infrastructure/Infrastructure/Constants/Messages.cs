@@ -24,5 +24,7 @@ namespace Infrastructure.Constants
         public static string ProductDeleted = "Ürün kaldırıldı!";
         public static string ProductsListed = "Ürünler listelendi";
         public static string MaintenanceTime = "BAKIMDA!";
+        public static string ProductPurchased = "Ürün satın alındı";
+        public static string OrderCreated = "Sipariş oluşturuldu!";
     }
 }

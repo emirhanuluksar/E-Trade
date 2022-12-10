@@ -138,10 +138,23 @@ namespace Infrastructure.Concrete
 
         public IResult IsThereAProduct(Product product, int piece)
         {
-            var result = _productDal.Get(p=>p.ProductId == product.ProductId);
-            if(result.UnitsInStock >= piece)
+            var result = _productDal.Get(p=>p.Equals(product) && p.UnitsInStock >= piece);
+            if(result != null)
             {
                 return new SuccessResult();
+            }
+            return new ErrorResult();
+
+        }
+
+        public IResult Remove(Product product, int piece)
+        {
+            var result = _productDal.Get(p=>p.Equals(product) && p.UnitsInStock >= piece);
+            if(result != null)
+            {
+                result.UnitsInStock -= piece;
+                _productDal.Update(result);
+                return new SuccessResult(Messages.ProductPurchased);
             }
             return new ErrorResult();
 

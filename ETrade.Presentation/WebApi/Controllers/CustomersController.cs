@@ -31,6 +31,18 @@ namespace WebApi.Controllers
             }
             return BadRequest(result.Message);
         }
-        
+
+        [HttpPost("buyproduct/{customerId}/{piece}")]
+        public IActionResult BuyProduct(Product product, int customerId, int piece)
+        {
+
+            var result = _customerService.BuyProduct(product, customerId, piece);
+            if(result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+         
+        }
     }
 }

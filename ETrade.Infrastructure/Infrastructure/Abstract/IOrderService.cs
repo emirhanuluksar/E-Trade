@@ -12,5 +12,6 @@ namespace Infrastructure.Abstract
     {
         IDataResult<List<Order>> GetAll();
         IDataResult<List<OrderDetailsDto>> GetCustomerOrders(int customerId);
+        IResult CreateOrder(int customerId, Product product, int piece);
     }
 }

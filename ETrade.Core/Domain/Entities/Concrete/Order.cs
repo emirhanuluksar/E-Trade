@@ -13,6 +13,6 @@ namespace Domain.Entities.Concrete
         public int ProductId {get; set;}
         public DateTime OrderDate {get; set;}
         public DateTime EstimatedDeliveryDate {get; set;}
-        public DateTime DeliveryTime {get; set;}
+        public DateTime DeliveryDate {get; set;}
     }
 }

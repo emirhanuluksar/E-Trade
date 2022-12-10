@@ -6,6 +6,7 @@ using Application.DTOs;
 using Application.Utilities.Results;
 using Domain.Entities.Concrete;
 using Infrastructure.Abstract;
+using Infrastructure.Constants;
 using Persistence.Abstract;
 
 namespace Infrastructure.Concrete
@@ -32,14 +33,15 @@ namespace Infrastructure.Concrete
         // PerformanceAspect
         // SecuredOperation
         // Caching
-        public IResult BuyProduct(Product product, int piece)
+        public IResult BuyProduct(Product product, int customerId, int piece)
         {
-            IResult result = _productService.IsThereAProduct(product, piece);
-            if(result.Success)
+                //_productService.Remove(product,piece);
+            var result2 = _orderService.CreateOrder(customerId,product,piece);
+            if(result2.Success)
             {
-                 
+                return new SuccessResult(Messages.OrderCreated);
             }
-            return new ErrorResult();
+            return new ErrorResult();   
         }
 
         public Customer GetByMail(string email)

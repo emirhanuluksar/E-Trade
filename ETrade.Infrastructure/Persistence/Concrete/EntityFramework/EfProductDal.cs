@@ -22,5 +22,6 @@ namespace Persistence.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
     }
 }

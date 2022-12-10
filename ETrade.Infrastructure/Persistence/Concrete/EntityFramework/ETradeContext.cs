@@ -11,7 +11,7 @@ namespace Persistence.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=etrade;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=vanopexetrade;Trusted_Connection=true");
         }
 
         public DbSet<Customer> Customers {get; set;}
