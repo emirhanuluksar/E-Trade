@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.DTOs;
+using Domain.Entities.Concrete;
 
 namespace Infrastructure.Constants
 {
@@ -26,5 +27,6 @@ namespace Infrastructure.Constants
         public static string MaintenanceTime = "BAKIMDA!";
         public static string ProductPurchased = "Ürün satın alındı";
         public static string OrderCreated = "Sipariş oluşturuldu!";
+        internal static Customer Deneme;
     }
 }

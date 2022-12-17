@@ -46,13 +46,25 @@ namespace Infrastructure.Concrete
         }
 
         public IDataResult<List<Order>> GetAll()
-        {
-            return new SuccessDataResult<List<Order>>(_orderDal.GetAll());
+        {   
+            var result = _orderDal.GetAll();
+            if(result != null)
+            {
+                return new SuccessDataResult<List<Order>>(result);
+            }
+            return new ErrorDataResult<List<Order>>();
+            //return new SuccessDataResult<List<Order>>(_orderDal.GetAll());
         }
 
         public IDataResult<List<OrderDetailsDto>> GetCustomerOrders(int customerId)
         {
-            return new SuccessDataResult<List<OrderDetailsDto>>(_orderDal.GetOrderDetail(customerId));
+            var result = _orderDal.GetOrderDetail(customerId);
+            if(result != null)
+            {
+                return new SuccessDataResult<List<OrderDetailsDto>>(result);
+            }
+            return new ErrorDataResult<List<OrderDetailsDto>>();
+            //return new SuccessDataResult<List<OrderDetailsDto>>(_orderDal.GetOrderDetail(customerId));
         }
     }
 }

@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Aspects.Autofac.Validation;
 using Application.DTOs;
+using Application.Utilities.Business;
 using Application.Utilities.Results;
 using Domain.Entities.Concrete;
 using Infrastructure.Abstract;
 using Infrastructure.Constants;
+using Infrastructure.ValidationRules.FluentValidation;
 using Persistence.Abstract;
 
 namespace Infrastructure.Concrete
@@ -24,8 +27,10 @@ namespace Infrastructure.Concrete
             _productService = productService;
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
         public void Add(Customer customer)
         {
+            var result = BusinessRules.Run();
             _customerDal.Add(customer);
         }
 
@@ -46,18 +51,43 @@ namespace Infrastructure.Concrete
 
         public Customer GetByMail(string email)
         {
-            return _customerDal.Get(u => u.Email == email);
+            var result = _customerDal.Get(u => u.Email == email);
+            if(result != null)
+            {
+                return result;
+            }
+            return Messages.Deneme;
         }
 
         public List<OperationClaim> GetClaims(Customer customer)
         {
-            return _customerDal.GetClaims(customer);
+            var result = _customerDal.GetClaims(customer);
+            if(result != null)
+            {
+                return result;
+            }
+            return null;
+            //return _customerDal.GetClaims(customer);
         }
 
         public IDataResult<List<OrderDetailsDto>> GetMyOrders(int customerId)
         {
             var result = _orderService.GetCustomerOrders(customerId);
-            return new SuccessDataResult<List<OrderDetailsDto>>(result.Data);   
+            if(result.Success)
+            {
+                return new SuccessDataResult<List<OrderDetailsDto>>(result.Data);
+            }
+            return new ErrorDataResult<List<OrderDetailsDto>>();
+            // var result = _orderService.GetCustomerOrders(customerId);
+            // return new SuccessDataResult<List<OrderDetailsDto>>(result.Data);   
         }
+
+
+
+
+
+
+
+
     }
 }

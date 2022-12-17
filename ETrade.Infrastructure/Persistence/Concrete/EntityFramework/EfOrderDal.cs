@@ -24,7 +24,7 @@ namespace Persistence.Concrete.EntityFramework
                              on o.CustomerId equals c.CustomerId
                              where o.CustomerId == customerId
 
-                             select new OrderDetailsDto {OrderId=o.OrderId, StoreName=s.StoreName,ProductName=p.ProductName,CustomerName=c.FirstName + " " + c.LastName, OrderDate=DateTime.Now};
+                             select new OrderDetailsDto {OrderId=o.OrderId, StoreName=s.StoreName,ProductName=p.ProductName,CustomerName=c.FirstName + " " + c.LastName, OrderDate=o.OrderDate};
                 return result.ToList();
             }
         }
